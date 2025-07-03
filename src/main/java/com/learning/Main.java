@@ -11,9 +11,9 @@ public class Main {
         System.out.println("My first hibernate project");
 
         Student s1 = new Student();
-        s1.setRollNo(107);
-        s1.setsName("Sandeep");
-        s1.setsAge(21);
+        s1.setRollNo(108);
+        s1.setsName("Hitesh");
+        s1.setsAge(25);
 
         Configuration cfg = new Configuration();
         cfg.addAnnotatedClass(com.learning.Student.class);
@@ -24,7 +24,7 @@ public class Main {
 
         Transaction transaction = session.beginTransaction();
 
-        session.save(s1);
+        session.persist(s1);
 
         transaction.commit();
 
