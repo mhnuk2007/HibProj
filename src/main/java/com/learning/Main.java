@@ -29,6 +29,8 @@ public class Main {
         transaction.commit();
 
         session.close();
+        sf.close();
+
 
 
         System.out.println(s1);
