@@ -11,9 +11,9 @@ public class Main {
         System.out.println("My first hibernate project");
 
         Student s1 = new Student();
-        s1.setRollNo(108);
-        s1.setsName("Hitesh");
-        s1.setsAge(25);
+        s1.setRollNo(102);
+        s1.setsName("Munesh");
+        s1.setsAge(20);
 
         Student s2 = null;
 
@@ -26,15 +26,12 @@ public class Main {
 
         Session session = sf.openSession();
 
-        s2 = session.get(Student.class,109);
-
+        Transaction transaction = session.beginTransaction();
+        session.merge(s1);
+        transaction.commit();
         session.close();
         sf.close();
-        if (s2 != null) {
-            System.out.println(s2);
-        } else {
-            System.out.println("Student not found.");
-        }
+        System.out.println(s1);
 
     }
 }
