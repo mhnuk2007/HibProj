@@ -15,11 +15,13 @@ public class Main {
         s1.setsName("Hitesh");
         s1.setsAge(25);
 
-        Configuration cfg = new Configuration();
-        cfg.addAnnotatedClass(com.learning.Student.class);
-        cfg.configure();
 
-        SessionFactory sf = cfg.buildSessionFactory();
+
+        SessionFactory sf = new Configuration()
+                .addAnnotatedClass(com.learning.Student.class)
+                .configure()
+                .buildSessionFactory();
+
         Session session = sf.openSession();
 
         Transaction transaction = session.beginTransaction();
