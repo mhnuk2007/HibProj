@@ -15,6 +15,8 @@ public class Main {
         s1.setsName("Hitesh");
         s1.setsAge(25);
 
+        Student s2 = null;
+
 
 
         SessionFactory sf = new Configuration()
@@ -24,19 +26,15 @@ public class Main {
 
         Session session = sf.openSession();
 
-        Transaction transaction = session.beginTransaction();
-
-        session.persist(s1);
-
-        transaction.commit();
+        s2 = session.get(Student.class,109);
 
         session.close();
         sf.close();
-
-
-
-        System.out.println(s1);
-
+        if (s2 != null) {
+            System.out.println(s2);
+        } else {
+            System.out.println("Student not found.");
+        }
 
     }
 }
