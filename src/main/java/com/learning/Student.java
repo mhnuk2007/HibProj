@@ -10,17 +10,23 @@ public class Student {
     private String sName;
     private int sAge;
 
+    //Constructors
+    public Student() {
+    }
+
+    public Student(int rollNo, String sName, int sAge) {
+        this.rollNo = rollNo;
+        this.sName = sName;
+        this.sAge = sAge;
+    }
+
     // Getters and setters
-
-
     public int getRollNo() {
         return rollNo;
     }
-
     public void setRollNo(int rollNo) {
         this.rollNo = rollNo;
     }
-
     public String getsName() {
         return sName;
     }
